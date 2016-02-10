@@ -1,0 +1,31 @@
+<!-- SPLASH MESSAGE -->
+<div class="jumbotron" ng-show="phase==='splash'">
+  <h1>Bee Game</h1>
+  <p class="lead">
+    Welcome to the Bee Game made in AngularJS
+  </p>
+    <p><a class="btn btn-lg btn-success" ng-href="#/" ng-click="setPhase('start')"><span class="glyphicon glyphicon-ok"></span>&nbsp;Start!</a></p>
+</div>
+
+<!-- START PHASE -->
+<div class="jumbotron" ng-show="phase==='start'">
+  <h1>Bee Game</h1>
+  <p class="lead">
+    Welcome to the Bee Game made in AngularJS
+  </p>
+  <p class="lead">
+    Initiating game...
+  </p>
+</div>
+
+<!-- GAME PHASE -->
+<div class="jumbotron" ng-show="phase==='game'">
+  <div class="row">
+    <div class="bee" ng-repeat="item in bees" ng-class="item.type">
+      <p><strong>{{item.type | capitalize}}<strong> ({{item.lifespan}}/{{item.maxlifespan}})</p>
+    </div>
+  </div>
+  <div class="row" ng-show="phase==='game'">
+    <p><a class="btn btn-lg btn-danger" ng-href="#/" ng-click="hitRandomBee()"><span class="glyphicon glyphicon-fire"></span>&nbsp;Hit!</a></p>
+  </div>
+</div>
